@@ -21,11 +21,22 @@
   "homepage": "https://github.com/ahmadAndika2011/usedicode-template-school#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "connect-mongo": "^6.0.0",
     "dotenv": "^17.4.2",
     "ejs": "^6.0.1",
+    "exceljs": "^4.4.0",
     "express": "^5.2.1",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^8.7.0",
+    "express-session": "^1.19.0",
+    "google-auth-library": "^11.0.2",
+    "helmet": "^8.3.0",
     "method-override": "^3.0.0",
-    "mongoose": "^9.10.0",
-    "multer": "^2.3.0"
+    "mongoose": "^9.9.5",
+    "multer": "^2.3.0",
+    "node-cron": "^4.6.0",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0"
   }
 }
