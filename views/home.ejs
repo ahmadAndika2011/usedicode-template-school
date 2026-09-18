@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMA Nusantara — Mendidik Generasi Nusantara</title>
+<meta name="description" content="SMA Nusantara: sekolah menengah atas modern yang membentuk generasi berpikir kritis, berakar budaya, dan siap menghadapi dunia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/cursor.css">
+</head>
+<body>
+
+<!-- <div id="header-placeholder"></div> -->
+ <%- include("partials/header.ejs") %>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="beranda">
+    <div class="hero-parallax" aria-hidden="true">
+      <div class="hero-layer hero-layer-sky"></div>
+      <div class="hero-layer hero-layer-far"></div>
+      <div class="hero-layer hero-layer-mid"></div>
+      <div class="hero-layer hero-layer-near"></div>
+    </div>
+
+    <div class="hero-content reveal">
+      <p class="hero-eyebrow">Sejak 1998 · Terakreditasi A</p>
+      <h1 class="hero-title">Mendidik generasi Nusantara yang berani bermimpi</h1>
+      <p class="hero-sub">SMA Nusantara memadukan kurikulum akademik yang kuat dengan ruang untuk berkarya, berorganisasi, dan mengenal jati diri — mempersiapkan siswa bukan hanya untuk ujian, tapi untuk kehidupan.</p>
+      <div class="hero-actions">
+        <a href="#kontak" class="btn btn-primary">Jadwalkan Kunjungan</a>
+        <a href="#tentang" class="btn btn-outline">Lihat Profil Sekolah</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-cue" aria-hidden="true">
+      <span></span>
+      Gulir untuk jelajahi
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-band" id="stats">
+    <div class="stats-card reveal">
+      <div class="stat">
+        <span class="stat-number" data-count="1240">0</span>
+        <span class="stat-label">Siswa Aktif</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-count="86">0</span>
+        <span class="stat-label">Guru &amp; Staf Pengajar</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-count="18">0</span>
+        <span class="stat-label">Unit Ekstrakurikuler</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-count="98" data-suffix="%">0%</span>
+        <span class="stat-label">Tingkat Kelulusan</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENTANG -->
+  <section class="about" id="tentang">
+    <div class="about-inner">
+      <div class="about-media reveal">
+        <svg viewBox="0 0 400 460" class="about-illustration" aria-hidden="true">
+          <rect x="0" y="0" width="400" height="460" rx="18" fill="var(--color-bg-alt)"/>
+          <rect x="40" y="60" width="320" height="180" rx="10" fill="var(--color-navy)"/>
+          <rect x="64" y="84" width="120" height="10" rx="5" fill="var(--color-gold)"/>
+          <rect x="64" y="108" width="200" height="8" rx="4" fill="rgba(255,255,255,.35)"/>
+          <rect x="64" y="128" width="170" height="8" rx="4" fill="rgba(255,255,255,.35)"/>
+          <circle cx="300" cy="200" r="26" fill="var(--color-gold)"/>
+          <rect x="40" y="270" width="150" height="150" rx="10" fill="var(--color-maroon)"/>
+          <rect x="210" y="270" width="150" height="150" rx="10" fill="var(--color-navy-dark)"/>
+          <path d="M228 330 L260 300 L292 330 L292 400 L228 400 Z" fill="var(--color-gold)" opacity=".85"/>
+        </svg>
+      </div>
+      <div class="about-copy reveal">
+        <p class="section-kicker">Tentang Kami</p>
+        <h2 class="section-title">Tempat tumbuh, bukan sekadar sekolah</h2>
+        <p>Selama lebih dari dua dekade, SMA Nusantara telah menjadi rumah kedua bagi ribuan siswa dari berbagai latar belakang. Kami percaya bahwa pendidikan terbaik lahir dari perpaduan antara disiplin akademik, ruang berekspresi, dan penghormatan terhadap keberagaman budaya Nusantara.</p>
+        <p>Guru-guru kami tidak hanya mengajar di depan kelas, tetapi mendampingi setiap siswa menemukan arah dan potensinya masing-masing — melalui kelas kecil, mentoring, dan program pengembangan karakter yang berkelanjutan.</p>
+        <ul class="about-points">
+          <li>Kurikulum nasional dengan pengayaan internasional</li>
+          <li>Rasio guru dan siswa yang terjaga untuk bimbingan personal</li>
+          <li>Program karakter dan kepemimpinan sejak kelas 10</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FASILITAS -->
+  <section class="facilities" id="fasilitas">
+    <div class="section-head reveal">
+      <p class="section-kicker">Fasilitas</p>
+      <h2 class="section-title">Ruang belajar yang lengkap dan nyaman</h2>
+      <p class="section-desc">Setiap sudut sekolah dirancang untuk mendukung cara belajar yang berbeda-beda.</p>
+    </div>
+    <div class="facility-grid reveal">
+      <article class="facility-card">
+        <span class="facility-icon">📚</span>
+        <h3>Perpustakaan</h3>
+        <p>Lebih dari 12.000 koleksi buku dan ruang baca tenang untuk riset mandiri.</p>
+      </article>
+      <article class="facility-card">
+        <span class="facility-icon">🔬</span>
+        <h3>Laboratorium Sains</h3>
+        <p>Lab fisika, kimia, dan biologi dengan peralatan praktikum standar nasional.</p>
+      </article>
+      <article class="facility-card">
+        <span class="facility-icon">💻</span>
+        <h3>Lab Komputer</h3>
+        <p>Ruang komputer dan coding dengan akses internet cepat untuk kelas digital.</p>
+      </article>
+      <article class="facility-card">
+        <span class="facility-icon">🏀</span>
+        <h3>Lapangan Olahraga</h3>
+        <p>Lapangan basket, futsal, dan atletik untuk kegiatan fisik harian.</p>
+      </article>
+      <article class="facility-card">
+        <span class="facility-icon">🎭</span>
+        <h3>Aula Serbaguna</h3>
+        <p>Ruang pertunjukan dan acara sekolah berkapasitas 500 orang.</p>
+      </article>
+      <article class="facility-card">
+        <span class="facility-icon">🎨</span>
+        <h3>Ruang Seni</h3>
+        <p>Studio seni rupa dan musik untuk mengasah bakat kreatif siswa.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- EKSTRAKURIKULER -->
+  <section class="ekskul" id="ekskul">
+    <div class="section-head reveal">
+      <p class="section-kicker">Ekstrakurikuler</p>
+      <h2 class="section-title">Kembangkan minat di luar kelas</h2>
+      <p class="section-desc">18 unit kegiatan siswa, dari olahraga hingga seni dan sains terapan.</p>
+    </div>
+    <div class="ekskul-track reveal">
+      <article class="ekskul-card ekskul-c1"><h3>Basket</h3><span>Olahraga</span></article>
+      <article class="ekskul-card ekskul-c2"><h3>Futsal</h3><span>Olahraga</span></article>
+      <article class="ekskul-card ekskul-c3"><h3>Pramuka</h3><span>Kepanduan</span></article>
+      <article class="ekskul-card ekskul-c4"><h3>Paduan Suara</h3><span>Seni</span></article>
+      <article class="ekskul-card ekskul-c5"><h3>Robotik</h3><span>Sains &amp; Teknologi</span></article>
+      <article class="ekskul-card ekskul-c6"><h3>Jurnalistik</h3><span>Media</span></article>
+      <article class="ekskul-card ekskul-c7"><h3>Tari Tradisional</h3><span>Seni</span></article>
+      <article class="ekskul-card ekskul-c8"><h3>English Club</h3><span>Bahasa</span></article>
+    </div>
+  </section>
+
+  <!-- GURU & STAF -->
+  <section class="teachers" id="guru">
+    <div class="section-head reveal">
+      <p class="section-kicker">Guru &amp; Staf</p>
+      <h2 class="section-title">Tenaga pendidik yang berpengalaman</h2>
+      <p class="section-desc">86 guru dan staf yang berdedikasi mendampingi proses belajar siswa.</p>
+    </div>
+    <div class="teacher-grid reveal">
+      <article class="teacher-card">
+        <span class="teacher-avatar">BS</span>
+        <h3>Budi Santoso, S.Pd.</h3>
+        <span class="teacher-subject">Kepala Sekolah</span>
+      </article>
+      <article class="teacher-card">
+        <span class="teacher-avatar">RW</span>
+        <h3>Ratna Wulandari, M.Pd.</h3>
+        <span class="teacher-subject">Matematika</span>
+      </article>
+      <article class="teacher-card">
+        <span class="teacher-avatar">AH</span>
+        <h3>Ahmad Hidayat, S.Pd.</h3>
+        <span class="teacher-subject">Fisika</span>
+      </article>
+      <article class="teacher-card">
+        <span class="teacher-avatar">DP</span>
+        <h3>Dewi Purnama, S.S.</h3>
+        <span class="teacher-subject">Bahasa Inggris</span>
+      </article>
+      <article class="teacher-card">
+        <span class="teacher-avatar">FN</span>
+        <h3>Fajar Nugroho, S.Pd.</h3>
+        <span class="teacher-subject">Sejarah</span>
+      </article>
+      <article class="teacher-card">
+        <span class="teacher-avatar">SM</span>
+        <h3>Siti Maryam, M.Si.</h3>
+        <span class="teacher-subject">Biologi</span>
+      </article>
+      <article class="teacher-card">
+        <span class="teacher-avatar">YP</span>
+        <h3>Yusuf Pratama, S.Kom.</h3>
+        <span class="teacher-subject">Informatika</span>
+      </article>
+      <article class="teacher-card">
+        <span class="teacher-avatar">LK</span>
+        <h3>Laila Kusuma, S.Pd.</h3>
+        <span class="teacher-subject">Bimbingan Konseling</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- BERITA -->
+  <section class="news" id="berita">
+    <div class="section-head reveal">
+      <p class="section-kicker">Berita</p>
+      <h2 class="section-title">Kabar terbaru dari SMA Nusantara</h2>
+    </div>
+    <div class="news-list reveal">
+      <a href="#">
+        <article class="news-item">
+          <div class="news-date"><span>14</span>Sep</div>
+          <div class="news-body">
+            <h3>Tim Robotik SMA Nusantara Juara 1 Kompetisi Tingkat Provinsi</h3>
+            <p>Unit ekstrakurikuler robotik berhasil membawa pulang gelar juara pada kompetisi robotik antar sekolah menengah se-provinsi.</p>
+            <a href="#" class="news-link">Baca selengkapnya →</a>
+          </div>
+        </article>
+      </a>
+
+      <a href="#">
+        <article class="news-item">
+          <div class="news-date"><span>02</span>Sep</div>
+          <div class="news-body">
+            <h3>Pendaftaran Siswa Baru Tahun Ajaran Berikutnya Resmi Dibuka</h3>
+            <p>Calon siswa dapat mendaftar secara daring melalui laman sekolah mulai minggu ini hingga akhir bulan.</p>
+            <a href="#" class="news-link">Baca selengkapnya →</a>
+          </div>
+        </article>
+      </a>
+
+      <a href="#">
+        <article class="news-item">
+          <div class="news-date"><span>22</span>Agu</div>
+          <div class="news-body">
+            <h3>Pentas Seni Tahunan Angkat Tema Kearifan Lokal Nusantara</h3>
+            <p>Siswa menampilkan tari, musik, dan drama tradisional dari berbagai daerah dalam acara pentas seni tahunan.</p>
+            <a href="#" class="news-link">Baca selengkapnya →</a>
+          </div>
+        </article>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<%- include("partials/footer.ejs") %>
+
+<script src="/js/home.js"></script>
+<script src="/js/cursor.js"></script>
+</body>
+</html>

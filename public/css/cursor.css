@@ -1,0 +1,85 @@
+/* ============================================================
+   CURSOR EFFECT — css/cursor.css
+   Aktif hanya di perangkat dengan mouse (lihat cursor.js).
+   Body diberi class "has-custom-cursor" oleh JS jika didukung.
+
+   Pakai mix-blend-mode: difference + warna putih, supaya cursor
+   otomatis "membalik" warna latar di bawahnya — jadi tetap
+   kelihatan jelas baik di section terang maupun section gelap
+   (mis. hero yang berwarna navy gelap), tanpa perlu diatur manual.
+   ============================================================ */
+
+.has-custom-cursor,
+.has-custom-cursor a,
+.has-custom-cursor button,
+.has-custom-cursor input,
+.has-custom-cursor textarea {
+  cursor: none;
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+  mix-blend-mode: difference;
+}
+
+.cursor-dot {
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  box-shadow: 0 0 12px 2px rgba(255, 255, 255, .55);
+  transition: transform .15s ease, opacity .15s ease, width .2s ease, height .2s ease;
+}
+
+.cursor-ring {
+  width: 44px;
+  height: 44px;
+  border: 2px solid #ffffff;
+  background: transparent;
+  opacity: .95;
+  transition: width .25s cubic-bezier(.22,.61,.36,1),
+              height .25s cubic-bezier(.22,.61,.36,1),
+              opacity .25s ease,
+              border-width .25s ease;
+}
+
+/* Hover over interactive elements */
+.has-custom-cursor.cursor-hover .cursor-ring {
+  width: 70px;
+  height: 70px;
+  border-width: 2.5px;
+  opacity: 1;
+}
+.has-custom-cursor.cursor-hover .cursor-dot {
+  width: 8px;
+  height: 8px;
+}
+
+/* Mouse button held down */
+.has-custom-cursor.cursor-active .cursor-ring {
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+}
+.has-custom-cursor.cursor-active .cursor-dot {
+  width: 18px;
+  height: 18px;
+}
+
+/* Hide entirely when pointer leaves the window */
+.has-custom-cursor.cursor-hidden .cursor-dot,
+.has-custom-cursor.cursor-hidden .cursor-ring {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot, .cursor-ring { display: none; }
+  .has-custom-cursor { cursor: auto; }
+}

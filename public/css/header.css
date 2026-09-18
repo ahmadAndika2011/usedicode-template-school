@@ -1,0 +1,52 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(250,249,246,.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: box-shadow .3s var(--ease), border-color .3s var(--ease), padding .3s var(--ease);
+}
+.site-header.scrolled {
+  border-color: var(--color-border);
+  box-shadow: 0 6px 24px rgba(22,35,63,.06);
+}
+.header-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 1.15rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  transition: padding .3s var(--ease);
+}
+.site-header.scrolled .header-inner { padding-top: .7rem; padding-bottom: .7rem; }
+
+.brand { display: flex; align-items: center; gap: .65rem; color: var(--color-navy-dark); margin-right: auto; }
+.brand-mark { width: 34px; height: 34px; color: var(--color-maroon); flex-shrink: 0; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-text strong { font-family: var(--font-display); font-size: 1.08rem; }
+.brand-text em { font-style: normal; font-size: .72rem; color: var(--color-text-soft); }
+
+.main-nav { display: flex; gap: 1.7rem; }
+.main-nav a { font-size: .93rem; font-weight: 600; color: var(--color-text-soft); position: relative; padding: .2rem 0; }
+.main-nav a:hover { color: var(--color-navy-dark); }
+.main-nav a::after {
+  content: ""; position: absolute; left: 0; bottom: -3px; height: 2px; width: 0;
+  background: var(--color-gold); transition: width .25s var(--ease);
+}
+.main-nav a:hover::after { width: 100%; }
+
+.header-cta { white-space: nowrap; padding: .6rem 1.2rem; }
+
+.nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: .4rem; }
+.nav-toggle span { width: 22px; height: 2px; background: var(--color-navy-dark); transition: transform .25s var(--ease), opacity .25s var(--ease); }
+
+@media (max-width: 860px) {
+  .main-nav, .header-cta { display: none; }
+  .nav-toggle { display: flex; }
+  .main-nav.open {
+    display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--color-bg); padding: 1.2rem 1.5rem; gap: 1rem; border-bottom: 1px solid var(--color-border);
+  }
+}

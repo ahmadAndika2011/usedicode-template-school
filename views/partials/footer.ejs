@@ -1,0 +1,84 @@
+<footer class="site-footer" id="kontak">
+  <div class="footer-top">
+    <div class="footer-col footer-brand">
+      <div class="brand brand-footer">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 4 L44 16 L44 34 L24 44 L4 34 L4 16 Z" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M24 14 L34 20 L34 30 L24 36 L14 30 L14 20 Z" fill="currentColor"/>
+        </svg>
+        <span class="brand-text">
+          <strong>SMA Nusantara</strong>
+          <em>Sekolah Menengah Atas</em>
+        </span>
+      </div>
+      <p>Membentuk generasi yang berpikir kritis, berakar pada budaya, dan siap menghadapi dunia.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="YouTube">YT</a>
+        <a href="#" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Tautan</h4>
+      <a href="#tentang">Tentang Kami</a>
+      <a href="#fasilitas">Fasilitas</a>
+      <a href="#ekskul">Ekstrakurikuler</a>
+      <a href="#guru">Guru &amp; Staf</a>
+      <a href="#berita">Berita</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <p>Jl. Kenanga Raya No. 17<br>Depok, Jawa Barat</p>
+      <p>(021) 555-0192</p>
+      <p>info@smanusantara.sch.id</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Jam Layanan</h4>
+      <p>Senin – Jumat<br>07.00 – 15.30 WIB</p>
+      <p>Sabtu<br>08.00 – 12.00 WIB</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>&copy; <span id="year"></span> SMA Nusantara. Semua hak dilindungi.</span>
+    <span>Dibuat dengan bangga untuk generasi Nusantara.</span>
+  </div>
+</footer>
+
+<!-- Floating action button: chat popup -->
+<div class="fab-wrap" id="fab-wrap">
+  <div class="fab-menu" id="fab-menu">
+    <a href="#" class="fab-option" id="fab-ai" data-action="ai">
+      <span class="fab-option-icon">🤖</span>
+      <span>Chat dengan AI</span>
+    </a>
+    <a href="https://wa.me/6281234567890?text=Halo%20SMA%20Nusantara%2C%20saya%20ingin%20bertanya"
+       class="fab-option" id="fab-wa" target="_blank" rel="noopener" data-action="wa">
+      <span class="fab-option-icon">💬</span>
+      <span>Chat WhatsApp</span>
+    </a>
+  </div>
+  <button class="fab-button" id="fab-button" aria-label="Buka menu bantuan" aria-expanded="false">
+    <span class="fab-icon fab-icon-plus">＋</span>
+  </button>
+</div>
+
+<!-- AI chat modal (front-end placeholder) -->
+<div class="ai-modal" id="ai-modal" hidden>
+  <div class="ai-modal-panel">
+    <div class="ai-modal-head">
+      <span>Asisten AI SMA Nusantara</span>
+      <button id="ai-modal-close" aria-label="Tutup">&times;</button>
+    </div>
+    <div class="ai-modal-body" id="ai-modal-body">
+      <div class="ai-msg ai-msg-bot">Halo! Ada yang bisa saya bantu seputar SMA Nusantara?</div>
+    </div>
+    <form class="ai-modal-form" id="ai-modal-form">
+      <input type="text" id="ai-modal-input" placeholder="Tulis pertanyaan..." autocomplete="off">
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+</div>
