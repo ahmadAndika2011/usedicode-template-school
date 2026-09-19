@@ -6,6 +6,7 @@ const app = express();
 const methodOverride = require("method-override")
 const path = require("path")
 const connectDB = require("./config/db")
+const cookieParser = require("cookie-parser")
 
 const {
   generalLimiter,

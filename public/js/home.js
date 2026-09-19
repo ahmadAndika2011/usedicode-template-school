@@ -23,6 +23,7 @@ async function init() {
   ]);
 
   initHeaderScroll();
+  initAuth()
   initNavToggle();
   initParallax();
   initScrollReveal();
@@ -39,6 +40,82 @@ function initHeaderScroll() {
   const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+const GOOGLE_CLIENT_ID = "106189507367-6cjhm4pc51hsbtmtc1jhpdvtf35rn2am.apps.googleusercontent.com"
+function initAuth(){
+  const modal = document.getElementById('auth-modal');
+  const titleEl = document.getElementById('auth-modal-title');
+  const btnBox = document.getElementById('google-btn');
+  const errorEl = document.getElementById('auth-error');
+  const loginBtn = document.getElementById('login-btn');
+  const signupBtn = document.getElementById('signup-btn');
+  if(!modal || !btnBox || !loginBtn || !signupBtn) return;
+
+  let currentUser = null
+  let gsiInitialized = false
+
+  function renderHeader(){
+    if (currentUser) {
+      loginBtn.style.display = 'none';
+      signupBtn.textContent = `Keluar (${currentUser.name.split(' ')[0]})`;
+    } else {
+      loginBtn.style.display = '';
+      signupBtn.textContent = 'SignUp';
+    }
+  }
+
+  async function handleCredential(resp){
+    errorEl.textContent = '';
+    try {
+      const res = await fetch('/api/auth/google', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ credential: resp.credential }),
+      });
+      if (!res.ok) throw new Error(res.status);
+      const { user } = await res.json();
+      currentUser = user;
+      renderHeader();
+      modal.hidden = true;
+    } catch (err) {
+      console.error(err);
+      errorEl.textContent = 'Gagal masuk dengan Google. Silakan coba lagi.';
+    }
+  }
+
+  function openModal(mode) {
+    errorEl.textContent = '';
+    titleEl.textContent = mode === 'signup' ? 'Daftar ke SMA Nusantara' : 'Masuk ke SMA Nusantara';
+    modal.hidden = false;
+
+    if (!window.google?.accounts?.id) {
+      errorEl.textContent = 'Layanan Google belum termuat. Periksa koneksi internet lalu coba lagi.';
+      return;
+    }
+    if (!gsiInitialized) {
+      google.accounts.id.initialize({ client_id: GOOGLE_CLIENT_ID, callback: handleCredential });
+      gsiInitialized = true;
+    }
+    btnBox.innerHTML = '';
+    google.accounts.id.renderButton(btnBox, {
+      theme: 'outline', size: 'large', shape: 'pill', width: 280, locale: 'id',
+      text: mode === 'signup' ? 'signup_with' : 'signin_with',
+    });
+  }
+
+  signupBtn.addEventListener('click', async () => {
+    if (!currentUser) return openModal('signup');
+    await fetch('/api/auth/logout', { method: 'POST' });
+    currentUser = null;
+    renderHeader();
+  });
+  loginBtn.addEventListener('click', (e) => { e.preventDefault(); openModal('login'); });
+  document.getElementById('auth-modal-close').addEventListener('click', () => { modal.hidden = true; });
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.hidden = true; });
+
+  // cek apakah sudah ada sesi login
+  fetch('/api/auth/me').then(r => r.json()).then(d => { currentUser = d.user; renderHeader(); }).catch(() => {});
 }
 
 /* ---------- Mobile nav toggle ---------- */
