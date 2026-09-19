@@ -1,0 +1,13 @@
+.auth-modal { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 16px; background: rgba(0,0,0,.55); }
+.auth-modal[hidden] { display: none; }
+.auth-panel { position: relative; width: min(420px, 100%); max-height: 90vh; overflow: auto; padding: 28px 24px; border-radius: 16px; background: #fff; color: #1a1a1a; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+.auth-panel h2 { margin: 0 0 16px; font-size: 1.25rem; }
+.auth-close { position: absolute; top: 10px; right: 14px; border: 0; background: none; font-size: 1.6rem; line-height: 1; cursor: pointer; color: inherit; }
+#google-btn { display: flex; justify-content: center; margin-top: 16px; min-height: 44px; }
+#signup-form label { display: block; margin: 14px 0 6px; font-size: .9rem; font-weight: 600; }
+#signup-form input { width: 100%; box-sizing: border-box; padding: 10px 12px; border: 1px solid #c9c9c9; border-radius: 8px; font: inherit; }
+#signup-form input:focus { outline: 2px solid #3b6ef5; outline-offset: 1px; }
+.auth-optional { font-weight: 400; color: #777; }
+.auth-submit { width: 100%; margin-top: 20px; padding: 11px; border: 0; border-radius: 8px; background: #1f3a8a; color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+.auth-submit:disabled { opacity: .6; cursor: wait; }
+.auth-error { min-height: 1.2em; margin: 12px 0 0; color: #c0392b; font-size: .9rem; }

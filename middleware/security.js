@@ -37,9 +37,10 @@ const helmetMiddleware = helmet({
       styleSrcElem: ["'self'", "'unsafe-inline'", "https://accounts.google.com"],
       frameSrc: ["'self'", "https://accounts.google.com"],
       connectSrc: ["'self'", "https://accounts.google.com"],
-      imgSrc: ["'self'", "data:", "blob:"]
+      imgSrc: ["'self'", "data:", "blob:", "https://*.googleusercontent.com"]
     }
   },
+  crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" },
   referrerPolicy: { policy: "strict-origin-when-cross-origin" }
 });
 
