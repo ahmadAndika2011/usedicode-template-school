@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const express = require("express");
 const app = express();
 
@@ -15,7 +16,7 @@ const {
 
 connectDB()
 
-app.use(generalLimiter);
+// app.use(generalLimiter);
 app.use(helmetMiddleware);
 app.use(express.json({ limit: "10kb" })); // Pembatas payload DoS
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
@@ -32,6 +33,9 @@ app.set("views", "./views")
 //? authentication
 // app.use("/", authLimiter, require("./routes/login"))
 // app.use("/", authLimiter, require("./routes/signup"))
+
+//? AI chat
+app.use("/", require("./routes/ai-chat"))
 
 app.use("/", require("./routes/home"))
 

@@ -212,29 +212,52 @@ function initAiModal() {
     }
   });
 
-  document.addEventListener('submit', (e) => {
+  const chatHistory = []
+
+  const addMsg = (body, who,text) => {
+    const el = document.createElement("div")
+    el.className = `ai-msg ai-msg-${who}`;
+    el.textContent = text;           // textContent = aman dari XSS
+    body.appendChild(el);
+    body.scrollTop = body.scrollHeight;
+    return el;
+  }
+
+  document.addEventListener('submit', async (e) => {
     if (e.target.id !== 'ai-modal-form') return;
     e.preventDefault();
+
     const input = document.getElementById('ai-modal-input');
     const body = document.getElementById('ai-modal-body');
     const text = input.value.trim();
     if (!text) return;
 
-    const userMsg = document.createElement('div');
-    userMsg.className = 'ai-msg ai-msg-user';
-    userMsg.textContent = text;
-    body.appendChild(userMsg);
+    addMsg(body, 'user', text);
+    chatHistory.push({ role: 'user', content: text });
     input.value = '';
-    body.scrollTop = body.scrollHeight;
+    input.disabled = true;
 
-    // Placeholder reply — connect this to a real AI API endpoint.
-    setTimeout(() => {
-      const botMsg = document.createElement('div');
-      botMsg.className = 'ai-msg ai-msg-bot';
-      botMsg.textContent = 'Terima kasih atas pertanyaannya. Tim kami akan segera membalas, atau hubungi kami via WhatsApp untuk respons lebih cepat.';
-      body.appendChild(botMsg);
+    const botEl = addMsg(body, 'bot', 'Mengetik…');
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: chatHistory }),
+      });
+      if (!res.ok) throw new Error(res.status);
+      const { reply } = await res.json();
+      botEl.textContent = reply;
+      chatHistory.push({ role: 'assistant', content: reply });
+    } catch (err) {
+      console.error(err);
+      botEl.textContent = 'Maaf, sedang ada kendala. Silakan hubungi kami via WhatsApp.';
+      chatHistory.pop(); // buang pesan user yang gagal agar riwayat tetap konsisten
+    } finally {
+      input.disabled = false;
+      input.focus();
       body.scrollTop = body.scrollHeight;
-    }, 500);
+    }
   });
 }
 

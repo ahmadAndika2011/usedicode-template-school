@@ -1,4 +1,4 @@
-.site-footer { background: var(--color-navy-dark); color: rgba(255,255,255,.75); padding: 4.5rem 1.5rem 0; }
+.site-footer { background: var(--color-navy-dark); color: rgba(255,255,255,.75); padding: 4.5rem 5rem 0 1.5rem; }
 .footer-top {
   max-width: var(--container); margin: 0 auto; padding-bottom: 3rem;
   display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem;
@@ -18,9 +18,30 @@
 .footer-col a, .footer-col p { display: block; font-size: .9rem; margin-bottom: .55rem; color: rgba(255,255,255,.7); }
 .footer-col a:hover { color: var(--color-gold); }
 .footer-bottom {
-  max-width: var(--container); margin: 0 auto; padding: 1.6rem 0;
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem;
-  font-size: .82rem; color: rgba(255,255,255,.5);
+  max-width: var(--container); 
+  margin: 0 auto;
+  padding: 1.6rem 0 5.5rem;
+  display: flex; 
+  justify-content: space-between; 
+  flex-wrap: wrap; 
+  gap: .5rem;
+  font-size: .82rem; 
+  color: rgba(255,255,255,.5);
 }
+
+/* Tambahkan dua aturan ini di CSS kamu: */
+.footer-bottom span:last-child {
+  max-width: calc(100% - 80px); /* Membatasi lebar teks terakhir agar tidak menabrak tombol */
+  margin-left: auto; /* Memastikan teks tetap berada di posisi paling kanan */
+}
+
+.footer-bottom a {
+  color: inherit;
+  text-decoration: underline;
+}
+.footer-bottom a:hover {
+  opacity: 0.8;
+}
+
 @media (max-width: 860px) { .footer-top { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .footer-top { grid-template-columns: 1fr; } }
